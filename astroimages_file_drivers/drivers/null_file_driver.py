@@ -1,14 +1,17 @@
-from astroimages_file_drivers import GenericFileDriver
-from handler_enums import FILE_HANDLER_TYPE
+from astroimages_file_drivers.driver import GenericFileDriver
+#from astroimages_file_drivers.handler_enums import FILE_HANDLER_TYPE
+import astroimages_file_drivers.handler_enums as handler_enums
 
 
 class NullFileDriver(GenericFileDriver):
 
     def get_type(self):
-        return FILE_HANDLER_TYPE.NULL
+        return handler_enums.FILE_HANDLER_TYPE.NULL
 
     def list_from_folder(self, folder_name):
-        return []
+        return ['NullFileDriver']
 
     def get_file(self, file_name):
-        return {}
+        return {
+            'NullFileDriver': NullFileDriver
+        }

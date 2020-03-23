@@ -6,4 +6,3 @@ class FILE_HANDLER_TYPE(Enum):
     LOCAL = 1
     S3 = 2
     MINIO = 3
-
