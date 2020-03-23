@@ -1,5 +1,6 @@
 import astroimages_file_drivers.handler_enums as handler_enums
 
+# TODO: Ugly code, need to be refactored
 import astroimages_file_drivers.drivers.minio_file_driver as minio_file_driver
 import astroimages_file_drivers.drivers.local_file_driver as local_file_driver
 import astroimages_file_drivers.drivers.null_file_driver as null_file_driver
