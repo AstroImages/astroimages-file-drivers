@@ -2,7 +2,7 @@ AstroImages Generic File Handling routines (astroimages-file-drivers)
 =================================
 ![Version](https://img.shields.io/badge/version-0.1.1-blue.svg?cacheSeconds=2592000)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](#)
-
+![Build Test](https://github.com/AstroImages/astroimages-file-drivers/workflows/Build%20Test%20(astroimages-file-drivers)/badge.svg)
 
 Generic file handling routines and wrappers
 
