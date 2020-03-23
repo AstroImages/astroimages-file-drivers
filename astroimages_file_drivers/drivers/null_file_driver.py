@@ -2,10 +2,10 @@ from astroimages_file_drivers import GenericFileDriver
 from handler_enums import FILE_HANDLER_TYPE
 
 
-class S3FileDriver(GenericFileDriver):
+class NullFileDriver(GenericFileDriver):
 
     def get_type(self):
-        return FILE_HANDLER_TYPE.S3
+        return FILE_HANDLER_TYPE.NULL
 
     def list_from_folder(self, folder_name):
         return []
