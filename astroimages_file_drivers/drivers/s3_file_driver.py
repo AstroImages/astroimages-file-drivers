@@ -7,7 +7,7 @@ class S3FileDriver(GenericFileDriver):
     def get_type(self):
         return FILE_HANDLER_TYPE.S3
 
-    def list_from_folder(self, folder_name):
+    def get_files(self, folder_name):
         return []
 
     def get_file(self, file_name):

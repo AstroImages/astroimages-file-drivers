@@ -7,7 +7,7 @@ class MinioFileDriver(GenericFileDriver):
     def get_type(self):
         return FILE_HANDLER_TYPE.MINIO
 
-    def list_from_folder(self, folder_name):
+    def get_files(self, folder_name):
         return []
 
     def get_file(self, file_name):

@@ -8,7 +8,7 @@ class NullFileDriver(GenericFileDriver):
     def get_type(self):
         return handler_enums.FILE_HANDLER_TYPE.NULL
 
-    def list_from_folder(self, folder_name):
+    def get_files(self, folder_name):
         return ['NullFileDriver']
 
     def get_file(self, file_name):
