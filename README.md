@@ -4,6 +4,7 @@ AstroImages Generic File Handling routines (astroimages-file-drivers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](#)
 ![Build Test](https://github.com/AstroImages/astroimages-file-drivers/workflows/Build%20Test%20(astroimages-file-drivers)/badge.svg)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=AstroImages_astroimages-file-drivers&metric=alert_status)](https://sonarcloud.io/dashboard?id=AstroImages_astroimages-file-drivers)
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/AstroImages/astroimages-file-drivers.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/AstroImages/astroimages-file-drivers/context:python)
 
 Generic file handling routines and wrappers
 
