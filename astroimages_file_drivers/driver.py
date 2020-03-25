@@ -8,7 +8,7 @@ class GenericFileDriver(ABC):
         pass
 
     @abstractmethod
-    def get_files(self, folder_name):
+    def get_files(self, folder_name, extension):
         pass
 
     @abstractmethod

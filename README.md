@@ -50,6 +50,7 @@ To upload
 
 ## References
 
+- https://stackoverflow.com/questions/41984750/download-file-from-amazon-s3-using-rest-api
 
 License
 -------
