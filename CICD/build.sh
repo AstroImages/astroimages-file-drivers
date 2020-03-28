@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-
 clear
+
 # exit when any command fails
 set -e
 
-export PYTHONPATH=$PYTHONPATH:../astroimages-file-drivers/
+docker build -f ./CICD/Dockerfile.tests -t astroimages-file-drivers:latest .
 
-echo "------------------------------------------------------------------"
-echo "UNIT TESTS"
-echo "------------------------------------------------------------------"
-python -m unittest discover ./test/unit -v
+docker run --rm -ti -p 5000:5000 astroimages-file-drivers
+
+# BASH-OPENING VERSON
+# docker run --rm -ti -p 5000:5000 astroimages-file-drivers /bin/bash
