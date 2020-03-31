@@ -1,5 +1,5 @@
-from astroimages_file_drivers.driver import GenericFileDriver
-from astroimages_file_drivers.handler_enums import FILE_HANDLER_TYPE
+from ..driver import GenericFileDriver
+from ..handler_enums import FILE_HANDLER_TYPE
 from ..util.local_file_system import list_files_in_folder
 
 
