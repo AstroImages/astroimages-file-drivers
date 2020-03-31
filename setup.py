@@ -12,14 +12,14 @@ with open('LICENSE') as f:
 setuptools.setup(
     name='astroimages_file_drivers',
     packages=['astroimages_file_drivers'],
-    version='0.1.2',
+    version='0.1.3',
     description='File handling routines',
     # long_description=readme,
     # long_description_content_type="text/markdown",
     author='Rodrigo de Souza',
     author_email='rsouza01@gmail.com',
     url='https://github.com/AstroImages/astroimages-file-drivers',
-    download_url='https://github.com/AstroImages/astroimages-file-drivers/archive/v_0.1.2.tar.gz',
+    download_url='https://github.com/AstroImages/astroimages-file-drivers/archive/v_0.1.3.tar.gz',
     license=license,
     install_requires=[
     ],
