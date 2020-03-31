@@ -1,16 +1,16 @@
-import astroimages_file_drivers.handler_enums as handler_enums
+from .handler_enums import FILE_HANDLER_TYPE
 
 # TODO: Ugly code, need to be refactored
-import astroimages_file_drivers.drivers.minio_file_driver as minio_file_driver
-import astroimages_file_drivers.drivers.local_file_driver as local_file_driver
-import astroimages_file_drivers.drivers.null_file_driver as null_file_driver
-import astroimages_file_drivers.drivers.s3_file_driver as s3_file_driver
+from .drivers.minio_file_driver import MinioFileDriver
+from .drivers.local_file_driver import LocalFileDriver
+from .drivers.s3_file_driver import S3FileDriver
+from .drivers.null_file_driver import NullFileDriver
 
 _handlers = {
-        handler_enums.FILE_HANDLER_TYPE.NULL: null_file_driver.NullFileDriver,
-        handler_enums.FILE_HANDLER_TYPE.LOCAL: local_file_driver.LocalFileDriver,
-        handler_enums.FILE_HANDLER_TYPE.S3: s3_file_driver.S3FileDriver,
-        handler_enums.FILE_HANDLER_TYPE.MINIO: minio_file_driver.MinioFileDriver
+        FILE_HANDLER_TYPE.NULL: NullFileDriver,
+        FILE_HANDLER_TYPE.LOCAL: LocalFileDriver,
+        FILE_HANDLER_TYPE.S3: S3FileDriver,
+        FILE_HANDLER_TYPE.MINIO: MinioFileDriver
     }
 
 
