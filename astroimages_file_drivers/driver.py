@@ -4,6 +4,10 @@ from abc import ABC, abstractmethod
 class GenericFileDriver(ABC):
 
     @abstractmethod
+    def get_physical_file(self, file_name):
+        pass
+
+    @abstractmethod
     def get_type(self):
         pass
 
@@ -11,6 +15,5 @@ class GenericFileDriver(ABC):
     def get_files(self, folder_name, extension):
         pass
 
-    @abstractmethod
     def get_file(self, file_name):
-        pass
+        return self.get_physical_file(file_name)

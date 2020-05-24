@@ -73,6 +73,8 @@ Give a ⭐️ if this project helped you!
 ## References
 
 - https://stackoverflow.com/questions/41984750/download-file-from-amazon-s3-using-rest-api
+- https://dev.to/perigk/a-comprehensive-introduction-to-unit-testing-and-mocking-with-python3-624
+- https://medium.com/python-pandemonium/python-mocking-you-are-a-tricksy-beast-6c4a1f8d19b2
 
 
 License

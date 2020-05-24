@@ -11,5 +11,5 @@ class LocalFileDriver(GenericFileDriver):
     def get_files(self, folder_name, extension):
         return list_files_in_folder(folder_name, extension)
 
-    def get_file(self, file_name):
+    def get_physical_file(self, file_name):
         return {}

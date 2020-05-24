@@ -37,7 +37,9 @@ class TestUtilFunctions(unittest.TestCase):
 
         files_in_folder = list_files_in_folder(folder, '.fits')
 
-        self.assertEqual(len(files_in_folder), self.folders_per_layer* self.files_per_folder, "Should be %s" % (self.folders_per_layer* self.files_per_folder))
+        self.assertEqual(len(files_in_folder),
+                         self.folders_per_layer * self.files_per_folder,
+                         "Should be %s" % (self.folders_per_layer * self.files_per_folder))
 
 
 if __name__ == '__main__':

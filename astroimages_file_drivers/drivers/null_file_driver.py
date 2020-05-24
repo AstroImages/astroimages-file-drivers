@@ -10,7 +10,7 @@ class NullFileDriver(GenericFileDriver):
     def get_files(self, folder_name, extension):
         return ['NullFileDriver']
 
-    def get_file(self, file_name):
+    def get_physical_file(self, file_name):
         return {
             'NullFileDriver': NullFileDriver
         }
