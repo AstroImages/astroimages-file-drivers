@@ -9,3 +9,11 @@ def list_files_in_folder(path, extension):
             if extension in file:
                 files.append(os.path.join(r, file))
     return files
+
+
+def read_full_file_in_bytes(path):
+    contents = None
+    with open(path, mode='r') as file:
+        contents = file.read()
+
+    return contents

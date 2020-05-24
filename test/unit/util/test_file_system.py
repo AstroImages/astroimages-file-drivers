@@ -1,7 +1,7 @@
 import unittest
 
 import tempfile
-from astroimages_file_drivers.util.local_file_system import list_files_in_folder
+from astroimages_file_drivers.util.local_file_system import list_files_in_folder, read_full_file_in_bytes
 
 
 class TestUtilFunctions(unittest.TestCase):
@@ -40,6 +40,12 @@ class TestUtilFunctions(unittest.TestCase):
         self.assertEqual(len(files_in_folder),
                          self.folders_per_layer * self.files_per_folder,
                          "Should be %s" % (self.folders_per_layer * self.files_per_folder))
+
+    def test_read_full_file_in_bytes(self):
+        "=============================================="
+
+        file = read_full_file_in_bytes('./test/data/WFPC2u5780205r_c0fx.fits')
+        print(file)
 
 
 if __name__ == '__main__':

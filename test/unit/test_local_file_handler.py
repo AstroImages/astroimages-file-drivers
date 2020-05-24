@@ -24,6 +24,10 @@ def mock_list_files_in_folder(folder, extension):
     return temp_files
 
 
+def mock_read_full_file_in_bytes(path):
+    return ['a', 'a', 'a', 'a']
+
+
 class TestLocalFileHandler(unittest.TestCase):
 
     def setUp(self):
@@ -47,10 +51,16 @@ class TestLocalFileHandler(unittest.TestCase):
 
         self.assertEqual(len(files), len(temp_files), "Should be %s" % len(temp_files))
 
-    def test_get_physical_file(self):
+    @mock.patch('astroimages_file_drivers.drivers.local_file_driver.read_full_file_in_bytes',
+                side_effect=mock_read_full_file_in_bytes)
+    def test_get_physical_file(self, mock_read_full_file_in_bytes):
+        '>>>>>>>> test_get_physical_file <<<<<<<<'
         driver = local_file_driver.LocalFileDriver()
 
-        file = driver.get_physical_file('file_name.fits')
+        file = driver.get_physical_file('../data/WFPC2u5780205r_c0fx.fits')
+        print(file)
+
+        self.assertNotEqual(file, None, 'Should not be None')
 
 
 if __name__ == '__main__':
