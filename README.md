@@ -19,11 +19,12 @@ $ git clone https://github.com/AstroImages/astroimages-file-drivers/
 $ cd astroimages-file-drivers
 ```
 
-Create virtualenv:
+
+Create and activate virtualenv:
 
 ```console
 $ virtualenv -p python3 env
-$ source env/bin/activate
+$ source env.sh
 (env) $ pip3 install -r requirements.txt
 ```
 
@@ -33,6 +34,12 @@ To run unit tests:
 
 ```console
 (env) $ python -m unittest discover test/unit -v
+```
+
+To run component tests:
+
+```console
+(env) $ python -m unittest discover test/component -v
 ```
 
 ## Packaging
@@ -50,13 +57,27 @@ To upload
 (env) $ twine upload dist/*
 ```
 
+## Author
+
+**Rodrigo de Souza**
+
+* Website: http://www.rodrigosouza.net.br
+* Github: [@rsouza01](https://github.com/rsouza01)
+* LinkedIn: [@rsouza01](https://linkedin.com/in/rsouza01)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+
 ## References
 
 - https://stackoverflow.com/questions/41984750/download-file-from-amazon-s3-using-rest-api
 
+
 License
 -------
 
-MIT, see LICENSE file
+Astroimages-file-drivers is released under the [MIT License](LICENSE).
 
 
