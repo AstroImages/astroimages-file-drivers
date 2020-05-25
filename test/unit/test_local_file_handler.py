@@ -25,7 +25,8 @@ def mock_list_files_in_folder(folder, extension):
 
 
 def mock_read_full_file_in_bytes(path):
-    return ['a', 'a', 'a', 'a']
+    str = "SIMPLE  =                    T / file does conform to FITS standard"
+    return bytearray(str, 'utf-8')
 
 
 class TestLocalFileHandler(unittest.TestCase):
@@ -54,13 +55,20 @@ class TestLocalFileHandler(unittest.TestCase):
     @mock.patch('astroimages_file_drivers.drivers.local_file_driver.read_full_file_in_bytes',
                 side_effect=mock_read_full_file_in_bytes)
     def test_get_physical_file(self, mock_read_full_file_in_bytes):
-        '>>>>>>>> test_get_physical_file <<<<<<<<'
+        'Test get_physical_file  - Happy Path'
         driver = local_file_driver.LocalFileDriver()
 
         file = driver.get_physical_file('../data/WFPC2u5780205r_c0fx.fits')
-        print(file)
-
         self.assertNotEqual(file, None, 'Should not be None')
+
+    @mock.patch('astroimages_file_drivers.drivers.local_file_driver.read_full_file_in_bytes',
+                return_value=None)
+    def test_get_physical_file_non_existent(self, mock_read_full_file_in_bytes):
+        'Test get_physical_file  - Non existent file'
+        driver = local_file_driver.LocalFileDriver()
+
+        file = driver.get_physical_file('../data/abc.fits')
+        self.assertEqual(file, None, 'Should be None')
 
 
 if __name__ == '__main__':
