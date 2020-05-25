@@ -42,10 +42,15 @@ class TestUtilFunctions(unittest.TestCase):
                          "Should be %s" % (self.folders_per_layer * self.files_per_folder))
 
     def test_read_full_file_in_bytes(self):
-        "=============================================="
-
+        "Testing reading an existing binary file - Happy path."
         file = read_full_file_in_bytes('./test/data/WFPC2u5780205r_c0fx.fits')
-        print(file)
+        self.assertEqual(len(file), 699840, "Should be %s" % 699840)
+
+    def test_read_full_file_in_bytes_non_existent(self):
+        "Testing reading an existing binary file - Non existent."
+        file = read_full_file_in_bytes('./test/data/abc.fits')
+
+        self.assertEqual(file, None, "Should be None")
 
 
 if __name__ == '__main__':

@@ -13,7 +13,11 @@ def list_files_in_folder(path, extension):
 
 def read_full_file_in_bytes(path):
     contents = None
-    with open(path, mode='r') as file:
-        contents = file.read()
+
+    try:
+        with open(path, mode='rb') as file:
+            contents = file.read()
+    except FileNotFoundError:
+        contents = None
 
     return contents
