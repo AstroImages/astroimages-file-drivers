@@ -56,6 +56,7 @@ class TestLocalFileHandler(unittest.TestCase):
                 side_effect=mock_read_full_file_in_bytes)
     def test_get_physical_file(self, mock_read_full_file_in_bytes):
         'Test get_physical_file  - Happy Path'
+
         driver = local_file_driver.LocalFileDriver()
 
         file = driver.get_physical_file('../data/WFPC2u5780205r_c0fx.fits')

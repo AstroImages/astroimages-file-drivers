@@ -15,5 +15,13 @@ class GenericFileDriver(ABC):
     def get_files(self, folder_name, extension):
         pass
 
+    @abstractmethod
+    def store_files(self, folder_name, files, overwrite=False):
+        pass
+
+    @abstractmethod
+    def store_file(self, folder_name, file, overwrite=False):
+        pass
+
     def get_file(self, file_name):
         return self.get_physical_file(file_name)

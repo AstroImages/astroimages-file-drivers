@@ -13,3 +13,9 @@ class LocalFileDriver(GenericFileDriver):
 
     def get_physical_file(self, file_name):
         return read_full_file_in_bytes(file_name)
+
+    def store_files(self, folder_name, files, overwrite=False):
+        pass
+
+    def store_file(self, folder_name, file, overwrite=False):
+        pass
