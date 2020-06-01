@@ -29,6 +29,11 @@ def mock_read_full_file_in_bytes(path):
     return bytearray(str, 'utf-8')
 
 
+def get_fits_file_contents():
+    str = "SIMPLE  =                    T / file does conform to FITS standard"
+    return bytearray(str, 'utf-8')
+
+
 class TestLocalFileHandler(unittest.TestCase):
 
     def setUp(self):
@@ -70,6 +75,53 @@ class TestLocalFileHandler(unittest.TestCase):
 
         file = driver.get_physical_file('../data/abc.fits')
         self.assertEqual(file, None, 'Should be None')
+
+    @mock.patch('astroimages_file_drivers.drivers.local_file_driver.store_file',
+                return_value=None)
+    def test_store_files(self, mock_store_files):
+        'Test store_files  - Happy path'
+        driver = local_file_driver.LocalFileDriver()
+
+        array_files = [
+            {'name': 'file1.fits', 'contents': get_fits_file_contents()},
+            {'name': 'file2.fits', 'contents': get_fits_file_contents()}
+        ]
+
+        # If it does not raise an exception, it passed
+        driver.store_files('local_folder', array_files)
+
+    @mock.patch('astroimages_file_drivers.drivers.local_file_driver.store_file',
+                return_value=None)
+    def test_store_files_empty_list(self, mock_store_files):
+        'Test store_files  - Empty list'
+        driver = local_file_driver.LocalFileDriver()
+
+        array_files = []
+
+        # If it does not raise an exception, it passed
+        driver.store_files('local_folder', array_files)
+
+    @mock.patch('astroimages_file_drivers.drivers.local_file_driver.store_file',
+                return_value=None)
+    def test_store_file(self, mock_store_file):
+        'Test store_file  - Happy path'
+        driver = local_file_driver.LocalFileDriver()
+
+        file = {'name': 'file1.fits', 'contents': get_fits_file_contents()}
+
+        # If it does not raise an exception, it passed
+        driver.store_file('local_folder', file)
+
+    @mock.patch('astroimages_file_drivers.drivers.local_file_driver.store_file',
+                return_value=None)
+    def test_store_empty_file(self, mock_store_file):
+        'Test store_file  - Empty file'
+        driver = local_file_driver.LocalFileDriver()
+
+        file = {'name': 'file1.fits', 'contents': ''}
+
+        # If it does not raise an exception, it passed
+        driver.store_file('local_folder', file)
 
 
 if __name__ == '__main__':

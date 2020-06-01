@@ -1,6 +1,6 @@
 from ..driver import GenericFileDriver
 from ..handler_enums import FILE_HANDLER_TYPE
-from ..util.local_file_system import list_files_in_folder, read_full_file_in_bytes
+from ..util.local_file_system import list_files_in_folder, read_full_file_in_bytes, store_file
 
 
 class LocalFileDriver(GenericFileDriver):
@@ -15,7 +15,8 @@ class LocalFileDriver(GenericFileDriver):
         return read_full_file_in_bytes(file_name)
 
     def store_files(self, folder_name, files, overwrite=False):
-        pass
+        for file in files:
+            self.store_file(folder_name, file, overwrite)
 
     def store_file(self, folder_name, file, overwrite=False):
-        pass
+        return store_file(folder_name, file, overwrite)

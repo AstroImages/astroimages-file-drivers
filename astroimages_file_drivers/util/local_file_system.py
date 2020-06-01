@@ -22,10 +22,5 @@ def read_full_file_in_bytes(path):
     return contents
 
 
-def store_files(path, files, overwrite=False):
-    for file in files:
-        store_file(path, file, overwrite)
-
-
-def store_file(path, file, overwrite=False):
+def store_file(folder_name, file, overwrite=False):
     pass

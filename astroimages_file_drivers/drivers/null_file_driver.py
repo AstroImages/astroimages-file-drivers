@@ -14,3 +14,9 @@ class NullFileDriver(GenericFileDriver):
         return {
             'NullFileDriver': NullFileDriver
         }
+
+    def store_files(self, folder_name, files, overwrite=False):
+        pass
+
+    def store_file(self, folder_name, file, overwrite=False):
+        pass
