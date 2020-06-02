@@ -1,8 +1,9 @@
 import os
+import codecs
 
 
-# List all files in a directory using os.listdir
 def list_files_in_folder(path, extension):
+    """ List all files in a directory using os.listdir """
     files = []
     for r, d, f in os.walk(path):
         for file in f:
@@ -23,4 +24,5 @@ def read_full_file_in_bytes(path):
 
 
 def store_file(folder_name, file, overwrite=False):
-    pass
+    with codecs.open(folder_name, 'wb') as f:
+        f.write(file)

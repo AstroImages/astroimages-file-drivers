@@ -1,4 +1,5 @@
 import unittest
+import os
 
 import tempfile
 from astroimages_file_drivers.util.local_file_system import list_files_in_folder, read_full_file_in_bytes, store_file
@@ -53,14 +54,30 @@ class TestUtilFunctions(unittest.TestCase):
         self.assertEqual(file, None, "Should be None")
 
     def test_store_file(self):
-        ">>>>>>>>>>>>>>>>> Test test_store_file - Happy path."
+        "Test test_store_file - Happy path."
+        try:
+            file = read_full_file_in_bytes('./test/data/WFPC2u5780205r_c0fx.fits')
+            file_name = './test/data/___WFPC2u5780205r_c0fx.fits'
+            store_file(file_name, file)
 
-        file = read_full_file_in_bytes('./test/data/WFPC2u5780205r_c0fx.fits')
-        file_name = './test/data/___WFPC2u5780205r_c0fx.fits'
-        store_file(file_name, file)
+            file = read_full_file_in_bytes(file_name)
+            self.assertEqual(len(file), 699840, "Should be %s" % 699840)
 
-        file = read_full_file_in_bytes(file_name)
-        self.assertEqual(len(file), 699840, "Should be %s" % 699840)
+        finally:
+            os.remove(file_name)
+
+    def test_store_empty_file(self):
+        ">>>>>>>>>>>>> Test test_store_file - Empty file."
+        try:
+            file = bytearray(0)
+            file_name = './test/data/empty.fits'
+            store_file(file_name, file)
+
+            file = read_full_file_in_bytes(file_name)
+            self.assertEqual(len(file), 0, "Should be %s" % 699840)
+
+        finally:
+            os.remove(file_name)
 
 
 if __name__ == '__main__':
