@@ -88,7 +88,7 @@ class TestLocalFileHandler(unittest.TestCase):
         ]
 
         # If it does not raise an exception, it passed
-        driver.store_files('local_folder', array_files)
+        driver.store_files('local_folder', array_files, 'txt')
 
     @mock.patch('astroimages_file_drivers.drivers.local_file_driver.store_file',
                 return_value=None)
@@ -99,7 +99,7 @@ class TestLocalFileHandler(unittest.TestCase):
         array_files = []
 
         # If it does not raise an exception, it passed
-        driver.store_files('local_folder', array_files)
+        driver.store_files('local_folder', array_files, 'txt')
 
     @mock.patch('astroimages_file_drivers.drivers.local_file_driver.store_file',
                 return_value=None)

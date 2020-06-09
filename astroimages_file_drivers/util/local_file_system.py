@@ -23,6 +23,6 @@ def read_full_file_in_bytes(path):
     return contents
 
 
-def store_file(folder_name, file, overwrite=False):
-    with codecs.open(folder_name, 'wb') as f:
+def store_file(path, file, overwrite=False):
+    with codecs.open(path, 'wb') as f:
         f.write(file)

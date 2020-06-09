@@ -16,7 +16,7 @@ class LocalFileDriver(GenericFileDriver):
 
     def store_files(self, folder_name, files, overwrite=False):
         for file in files:
-            self.store_file(folder_name, file, overwrite)
+            self.store_file('{}/{}'.format(folder_name, file['name']), file['contents'], overwrite)
 
-    def store_file(self, folder_name, file, overwrite=False):
-        return store_file(folder_name, file, overwrite)
+    def store_file(self, path, file, overwrite=False):
+        return store_file(path, file, overwrite)

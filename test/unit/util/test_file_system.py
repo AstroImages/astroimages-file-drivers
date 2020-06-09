@@ -67,7 +67,7 @@ class TestUtilFunctions(unittest.TestCase):
             os.remove(file_name)
 
     def test_store_empty_file(self):
-        ">>>>>>>>>>>>> Test test_store_file - Empty file."
+        "Test test_store_file - Empty file."
         try:
             file = bytearray(0)
             file_name = './test/data/empty.fits'
