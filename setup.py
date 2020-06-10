@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 # from setuptools import setup, find_packages
 import setuptools
-from setuptools import find_packages
 
 
 with open('README.md') as f:
@@ -12,18 +11,18 @@ with open('LICENSE') as f:
 
 setuptools.setup(
     name='astroimages_file_drivers',
-    version='0.1.4',
+    version='0.1.5',
     description='File handling routines',
-    # long_description=readme,
-    # long_description_content_type="text/markdown",
+    long_description=readme,
+    long_description_content_type="text/markdown",
     author='Rodrigo de Souza',
     author_email='rsouza01@gmail.com',
     url='https://github.com/AstroImages/astroimages-file-drivers',
-    download_url='https://github.com/AstroImages/astroimages-file-drivers/archive/v_0.1.4.tar.gz',
+    download_url='https://github.com/AstroImages/astroimages-file-drivers/archive/v_0.1.5.tar.gz',
     license=license,
     install_requires=[
     ],
-    packages=find_packages(),
+    packages=setuptools.find_packages(),
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
