@@ -13,8 +13,6 @@ setuptools.setup(
     name='astroimages_file_drivers',
     version='0.1.6',
     description='File handling routines',
-    # long_description=readme,
-    # long_description_content_type="text/markdown",
     author='Rodrigo de Souza',
     author_email='rsouza01@gmail.com',
     url='https://github.com/AstroImages/astroimages-file-drivers',
