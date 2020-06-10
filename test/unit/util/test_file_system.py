@@ -1,7 +1,8 @@
 import unittest
+import os
 
 import tempfile
-from astroimages_file_drivers.util.local_file_system import list_files_in_folder
+from astroimages_file_drivers.util.local_file_system import list_files_in_folder, read_full_file_in_bytes, store_file
 
 
 class TestUtilFunctions(unittest.TestCase):
@@ -37,7 +38,46 @@ class TestUtilFunctions(unittest.TestCase):
 
         files_in_folder = list_files_in_folder(folder, '.fits')
 
-        self.assertEqual(len(files_in_folder), self.folders_per_layer* self.files_per_folder, "Should be %s" % (self.folders_per_layer* self.files_per_folder))
+        self.assertEqual(len(files_in_folder),
+                         self.folders_per_layer * self.files_per_folder,
+                         "Should be %s" % (self.folders_per_layer * self.files_per_folder))
+
+    def test_read_full_file_in_bytes(self):
+        "Testing reading an existing binary file - Happy path."
+        file = read_full_file_in_bytes('./test/data/WFPC2u5780205r_c0fx.fits')
+        self.assertEqual(len(file), 699840, "Should be %s" % 699840)
+
+    def test_read_full_file_in_bytes_non_existent(self):
+        "Testing reading an existing binary file - Non existent."
+        file = read_full_file_in_bytes('./test/data/abc.fits')
+
+        self.assertEqual(file, None, "Should be None")
+
+    def test_store_file(self):
+        "Test test_store_file - Happy path."
+        try:
+            file = read_full_file_in_bytes('./test/data/WFPC2u5780205r_c0fx.fits')
+            file_name = './test/data/___WFPC2u5780205r_c0fx.fits'
+            store_file(file_name, file)
+
+            file = read_full_file_in_bytes(file_name)
+            self.assertEqual(len(file), 699840, "Should be %s" % 699840)
+
+        finally:
+            os.remove(file_name)
+
+    def test_store_empty_file(self):
+        "Test test_store_file - Empty file."
+        try:
+            file = bytearray(0)
+            file_name = './test/data/empty.fits'
+            store_file(file_name, file)
+
+            file = read_full_file_in_bytes(file_name)
+            self.assertEqual(len(file), 0, "Should be %s" % 699840)
+
+        finally:
+            os.remove(file_name)
 
 
 if __name__ == '__main__':

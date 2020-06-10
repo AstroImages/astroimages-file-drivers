@@ -10,5 +10,11 @@ class MinioFileDriver(GenericFileDriver):
     def get_files(self, folder_name, extension):
         return []
 
-    def get_file(self, file_name):
+    def get_physical_file(self, file_name):
         return {}
+
+    def store_files(self, folder_name, files, overwrite=False):
+        pass
+
+    def store_file(self, folder_name, file, overwrite=False):
+        pass
