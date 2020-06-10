@@ -17,6 +17,14 @@ class GenericFileDriver(ABC):
 
     @abstractmethod
     def store_files(self, folder_name, files, overwrite=False):
+        """ files must be a dictionary array with the following structure:
+
+            array_files = [
+                {'name': 'file1.txt', 'contents': 'CONTENTS FILE 1'},
+                {'name': 'file2.txt', 'contents': 'CONTENTS FILE 2'},
+            ]
+
+        """
         pass
 
     @abstractmethod
